@@ -1,24 +1,352 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBC-rS-uzL">
+                                <rect key="frame" x="0.0" y="946" width="768" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="a24-AN-bRk"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="csz-UA-pbm"/>
+                                    <barButtonItem title="New Game" id="FxT-1Y-vPk">
+                                        <connections>
+                                            <action selector="pressedNewGame:" destination="BYZ-38-t0r" id="ifz-3c-ugH"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="a24-AN-bRk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="a24-AN-bRk"/>
+                                    </mask>
+                                </variation>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C73-8A-ehn" userLabel="Game State Nav Bar">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="RY9-4Q-HtE"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="X's term" id="fjR-WA-3XC">
+                                        <barButtonItem key="leftBarButtonItem" title="New Game" id="Kbd-Dk-aN7">
+                                            <connections>
+                                                <action selector="pressedNewGame:" destination="BYZ-38-t0r" id="2m9-DL-Pqo"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RY9-4Q-HtE"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="RY9-4Q-HtE"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uos-Gq-kif" userLabel="Usable View">
+                                <rect key="frame" x="0.0" y="60" width="768" height="964"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgJ-8k-GMX" userLabel="GameBoard">
+                                        <rect key="frame" x="49" y="147" width="670" height="670"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gfl-oc-B1p">
+                                                <rect key="frame" x="0.0" y="0.0" width="670" height="670"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JXs-dj-fbc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="670" height="223.5"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQk-Wk-bZB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="223.5" height="223.5"/>
+                                                                <state key="normal" backgroundImage="iPad_X.png"/>
+                                                                <connections>
+                                                                    <action selector="pressedGameBoardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sqi-Pc-6iA"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwx-bH-zW6">
+                                                                <rect key="frame" x="223.5" y="0.0" width="223" height="223.5"/>
+                                                                <state key="normal" backgroundImage="iPad_X.png"/>
+                                                                <connections>
+                                                                    <action selector="pressedGameBoardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rtW-A5-sbo"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3x-rP-f18">
+                                                                <rect key="frame" x="446.5" y="0.0" width="223.5" height="223.5"/>
+                                                                <state key="normal" backgroundImage="iPad_X.png"/>
+                                                                <connections>
+                                                                    <action selector="pressedGameBoardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z8o-JR-l8w"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1HD-hi-pm7">
+                                                        <rect key="frame" x="0.0" y="223.5" width="670" height="223"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAm-Bo-fcO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="223.5" height="223"/>
+                                                                <state key="normal" backgroundImage="iPad_X.png"/>
+                                                                <connections>
+                                                                    <action selector="pressedGameBoardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ib7-sk-JHQ"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1J-T0-vcp">
+                                                                <rect key="frame" x="223.5" y="0.0" width="223" height="223"/>
+                                                                <state key="normal" backgroundImage="iPad_X.png"/>
+                                                                <connections>
+                                                                    <action selector="pressedGameBoardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="buZ-h6-Obg"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPy-Os-wss">
+                                                                <rect key="frame" x="446.5" y="0.0" width="223.5" height="223"/>
+                                                                <state key="normal" backgroundImage="iPad_X.png"/>
+                                                                <connections>
+                                                                    <action selector="pressedGameBoardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ngd-aD-tpS"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZOj-h9-5fe">
+                                                        <rect key="frame" x="0.0" y="446.5" width="670" height="223.5"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7k1-dW-JVU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="223.5" height="223.5"/>
+                                                                <state key="normal" backgroundImage="iPad_X.png"/>
+                                                                <connections>
+                                                                    <action selector="pressedGameBoardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4HT-ui-mVP"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zV-u5-7e3">
+                                                                <rect key="frame" x="223.5" y="0.0" width="223" height="223.5"/>
+                                                                <state key="normal" backgroundImage="iPad_X.png"/>
+                                                                <connections>
+                                                                    <action selector="pressedGameBoardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BNr-mc-8WY"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X80-ht-cA0">
+                                                                <rect key="frame" x="446.5" y="0.0" width="223.5" height="223.5"/>
+                                                                <state key="normal" backgroundImage="iPad_X.png"/>
+                                                                <connections>
+                                                                    <action selector="pressedGameBoardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R0J-QO-MPt"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.93591074705639454" blue="0.63233000248890991" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="670" id="ATU-PA-sdz"/>
+                                            <constraint firstAttribute="bottom" secondItem="gfl-oc-B1p" secondAttribute="bottom" id="Ea9-sn-3Qy"/>
+                                            <constraint firstAttribute="width" secondItem="dgJ-8k-GMX" secondAttribute="height" multiplier="28:31" id="PCJ-3g-2SH"/>
+                                            <constraint firstAttribute="height" constant="670" id="QaQ-de-NVm"/>
+                                            <constraint firstAttribute="trailing" secondItem="gfl-oc-B1p" secondAttribute="trailing" id="VYd-V3-Vph"/>
+                                            <constraint firstItem="gfl-oc-B1p" firstAttribute="top" secondItem="dgJ-8k-GMX" secondAttribute="top" id="VcU-PM-hKR"/>
+                                            <constraint firstItem="gfl-oc-B1p" firstAttribute="leading" secondItem="dgJ-8k-GMX" secondAttribute="leading" id="xM7-EJ-fpH"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ATU-PA-sdz"/>
+                                                <exclude reference="PCJ-3g-2SH"/>
+                                                <exclude reference="QaQ-de-NVm"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="PCJ-3g-2SH"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="ATU-PA-sdz"/>
+                                                <include reference="QaQ-de-NVm"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X's Turn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nV5-62-nic">
+                                        <rect key="frame" x="20" y="142" width="374" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28178787824474905" green="0.57366676195595945" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="dgJ-8k-GMX" firstAttribute="centerY" secondItem="Uos-Gq-kif" secondAttribute="centerY" id="2Lu-rD-lZB"/>
+                                    <constraint firstItem="dgJ-8k-GMX" firstAttribute="top" secondItem="nV5-62-nic" secondAttribute="bottom" constant="20" id="9KJ-uL-RTm"/>
+                                    <constraint firstAttribute="trailing" secondItem="dgJ-8k-GMX" secondAttribute="trailing" constant="20" id="FEz-xs-jcz"/>
+                                    <constraint firstItem="dgJ-8k-GMX" firstAttribute="centerX" secondItem="Uos-Gq-kif" secondAttribute="centerX" id="GZX-2s-ESI"/>
+                                    <constraint firstAttribute="trailing" secondItem="nV5-62-nic" secondAttribute="trailing" constant="20" id="JYS-o8-MNd"/>
+                                    <constraint firstItem="dgJ-8k-GMX" firstAttribute="leading" secondItem="Uos-Gq-kif" secondAttribute="leading" constant="20" id="KeH-13-3rP"/>
+                                    <constraint firstItem="nV5-62-nic" firstAttribute="leading" secondItem="Uos-Gq-kif" secondAttribute="leading" constant="20" id="TEe-Wf-CuV"/>
+                                    <constraint firstItem="dgJ-8k-GMX" firstAttribute="centerY" secondItem="Uos-Gq-kif" secondAttribute="centerY" id="cxA-aL-6tr">
+                                        <variation key="widthClass=compact" constant="30"/>
+                                    </constraint>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="nV5-62-nic"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="JYS-o8-MNd"/>
+                                        <exclude reference="TEe-Wf-CuV"/>
+                                        <exclude reference="2Lu-rD-lZB"/>
+                                        <exclude reference="9KJ-uL-RTm"/>
+                                        <exclude reference="FEz-xs-jcz"/>
+                                        <exclude reference="GZX-2s-ESI"/>
+                                        <exclude reference="KeH-13-3rP"/>
+                                        <exclude reference="cxA-aL-6tr"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="nV5-62-nic"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="JYS-o8-MNd"/>
+                                        <include reference="TEe-Wf-CuV"/>
+                                        <include reference="9KJ-uL-RTm"/>
+                                        <include reference="FEz-xs-jcz"/>
+                                        <include reference="KeH-13-3rP"/>
+                                        <include reference="cxA-aL-6tr"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="2Lu-rD-lZB"/>
+                                        <include reference="GZX-2s-ESI"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uos-Gq-kif" secondAttribute="trailing" id="0AW-fd-buf"/>
+                            <constraint firstItem="C73-8A-ehn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9xF-UN-yGM"/>
+                            <constraint firstItem="Uos-Gq-kif" firstAttribute="top" secondItem="C73-8A-ehn" secondAttribute="bottom" id="Efx-VX-1TF"/>
+                            <constraint firstItem="C73-8A-ehn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fa9-Tn-qQ5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qBC-rS-uzL" secondAttribute="bottom" id="J0k-Ss-li1"/>
+                            <constraint firstItem="qBC-rS-uzL" firstAttribute="top" secondItem="Uos-Gq-kif" secondAttribute="bottom" id="MVS-cq-Vqx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uos-Gq-kif" secondAttribute="trailing" id="N2W-dp-bUu"/>
+                            <constraint firstAttribute="bottom" secondItem="Uos-Gq-kif" secondAttribute="bottom" id="Va6-DG-hUU"/>
+                            <constraint firstItem="Uos-Gq-kif" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="aaJ-Hy-TMV"/>
+                            <constraint firstItem="qBC-rS-uzL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="av9-SK-gnu"/>
+                            <constraint firstAttribute="bottom" secondItem="Uos-Gq-kif" secondAttribute="bottom" constant="78" id="h8G-7O-dNn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Uos-Gq-kif" secondAttribute="bottom" id="kfV-7e-pAy"/>
+                            <constraint firstItem="C73-8A-ehn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="lMH-dh-Jbh">
+                                <variation key="widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="Uos-Gq-kif" firstAttribute="bottom" secondItem="qBC-rS-uzL" secondAttribute="top" id="mKF-ND-MpF"/>
+                            <constraint firstItem="Uos-Gq-kif" firstAttribute="leading" secondItem="qBC-rS-uzL" secondAttribute="leading" id="mj6-4b-6eA"/>
+                            <constraint firstItem="Uos-Gq-kif" firstAttribute="top" secondItem="C73-8A-ehn" secondAttribute="bottom" id="nxo-Lh-WHd"/>
+                            <constraint firstItem="Uos-Gq-kif" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="o6z-Gi-fA6"/>
+                            <constraint firstItem="qBC-rS-uzL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ujo-fK-90H"/>
+                            <constraint firstItem="Uos-Gq-kif" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ybD-cp-fNh"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qBC-rS-uzL"/>
+                                <exclude reference="C73-8A-ehn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="J0k-Ss-li1"/>
+                                <exclude reference="N2W-dp-bUu"/>
+                                <exclude reference="kfV-7e-pAy"/>
+                                <exclude reference="9xF-UN-yGM"/>
+                                <exclude reference="Fa9-Tn-qQ5"/>
+                                <exclude reference="lMH-dh-Jbh"/>
+                                <exclude reference="Efx-VX-1TF"/>
+                                <exclude reference="Va6-DG-hUU"/>
+                                <exclude reference="aaJ-Hy-TMV"/>
+                                <exclude reference="h8G-7O-dNn"/>
+                                <exclude reference="mKF-ND-MpF"/>
+                                <exclude reference="mj6-4b-6eA"/>
+                                <exclude reference="nxo-Lh-WHd"/>
+                                <exclude reference="o6z-Gi-fA6"/>
+                                <exclude reference="ybD-cp-fNh"/>
+                                <exclude reference="MVS-cq-Vqx"/>
+                                <exclude reference="av9-SK-gnu"/>
+                                <exclude reference="ujo-fK-90H"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="qBC-rS-uzL"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="J0k-Ss-li1"/>
+                                <exclude reference="Va6-DG-hUU"/>
+                                <include reference="h8G-7O-dNn"/>
+                                <include reference="mKF-ND-MpF"/>
+                                <include reference="mj6-4b-6eA"/>
+                                <include reference="ybD-cp-fNh"/>
+                                <exclude reference="MVS-cq-Vqx"/>
+                                <include reference="av9-SK-gnu"/>
+                                <include reference="ujo-fK-90H"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="C73-8A-ehn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="N2W-dp-bUu"/>
+                                <include reference="kfV-7e-pAy"/>
+                                <include reference="9xF-UN-yGM"/>
+                                <include reference="Fa9-Tn-qQ5"/>
+                                <include reference="lMH-dh-Jbh"/>
+                                <include reference="Efx-VX-1TF"/>
+                                <include reference="aaJ-Hy-TMV"/>
+                                <include reference="nxo-Lh-WHd"/>
+                                <include reference="o6z-Gi-fA6"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="gameStateLabel" destination="nV5-62-nic" id="3Ud-DL-Dx2"/>
+                        <outlet property="gameStatenavBar" destination="C73-8A-ehn" id="UTp-H4-kuJ"/>
+                        <outletCollection property="gameBoardButtons" destination="vQk-Wk-bZB" collectionClass="NSMutableArray" id="XaS-uc-j1a"/>
+                        <outletCollection property="gameBoardButtons" destination="Vwx-bH-zW6" collectionClass="NSMutableArray" id="09b-6U-qN5"/>
+                        <outletCollection property="gameBoardButtons" destination="Q3x-rP-f18" collectionClass="NSMutableArray" id="3Xu-2c-tO4"/>
+                        <outletCollection property="gameBoardButtons" destination="QAm-Bo-fcO" collectionClass="NSMutableArray" id="Tn3-lc-lTT"/>
+                        <outletCollection property="gameBoardButtons" destination="C1J-T0-vcp" collectionClass="NSMutableArray" id="v7A-yW-j01"/>
+                        <outletCollection property="gameBoardButtons" destination="XPy-Os-wss" collectionClass="NSMutableArray" id="FJg-67-R4P"/>
+                        <outletCollection property="gameBoardButtons" destination="7k1-dW-JVU" collectionClass="NSMutableArray" id="ES6-qG-Wtw"/>
+                        <outletCollection property="gameBoardButtons" destination="3zV-u5-7e3" collectionClass="NSMutableArray" id="zj9-dz-iyN"/>
+                        <outletCollection property="gameBoardButtons" destination="X80-ht-cA0" collectionClass="NSMutableArray" id="nEu-3v-86W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.25" y="107.8125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iPad_X.png" width="194" height="194"/>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
