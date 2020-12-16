@@ -22,6 +22,7 @@
 		F9AF56332589EF75008EDB60 /* iPad_O.png in Resources */ = {isa = PBXBuildFile; fileRef = F9AF562A2589EF75008EDB60 /* iPad_O.png */; };
 		F9AF56342589EF75008EDB60 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = F9AF562B2589EF75008EDB60 /* Icon-72.png */; };
 		F9AF56352589EF75008EDB60 /* iPhone_board.png in Resources */ = {isa = PBXBuildFile; fileRef = F9AF562C2589EF75008EDB60 /* iPhone_board.png */; };
+		F9AF5638258A01D7008EDB60 /* TicTacToeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AF5637258A01D7008EDB60 /* TicTacToeGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		F9AF562A2589EF75008EDB60 /* iPad_O.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPad_O.png; sourceTree = "<group>"; };
 		F9AF562B2589EF75008EDB60 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		F9AF562C2589EF75008EDB60 /* iPhone_board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone_board.png; sourceTree = "<group>"; };
+		F9AF5637258A01D7008EDB60 /* TicTacToeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				F9AF56182589EEE9008EDB60 /* Assets.xcassets */,
 				F9AF561A2589EEE9008EDB60 /* LaunchScreen.storyboard */,
 				F9AF561D2589EEE9008EDB60 /* Info.plist */,
+				F9AF5637258A01D7008EDB60 /* TicTacToeGame.swift */,
 			);
 			path = "Tic-Tac-Toe";
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9AF5638258A01D7008EDB60 /* TicTacToeGame.swift in Sources */,
 				F9AF56142589EEE7008EDB60 /* ViewController.swift in Sources */,
 				F9AF56102589EEE7008EDB60 /* AppDelegate.swift in Sources */,
 				F9AF56122589EEE7008EDB60 /* SceneDelegate.swift in Sources */,
